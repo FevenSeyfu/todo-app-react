@@ -20,9 +20,17 @@ const [todos,setTodos ] = useState([
 		completed: false,
 	},
 ]);
+const addTodoItem = (title) => {
+  const newTodo = {
+    id: 4,
+    title: title,
+    completed: false,
+  };
+  setTodos([...todos, newTodo]);
+};
 	return(
     <div>
-      <TodoInput />
+      <TodoInput addTodoItem={addTodoItem}/>
       <TodoList todosProps={todos} setTodos={setTodos}/>
     </div>
 	)
