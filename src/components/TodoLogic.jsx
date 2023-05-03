@@ -20,6 +20,29 @@ const [todos,setTodos ] = useState([
 		completed: false,
 	},
 ]);
+const handleChange = (id) => {
+		setTodos((prevState) =>
+			prevState.map((todo) => {
+				if (todo.id === id) {
+					return {
+						...todo,
+						completed: !todo.completed,
+					};
+				}
+				return todo;
+			})
+		);
+	};
+	const DeleteTodo = (id) =>{
+		setTodos((prevState) =>
+			prevState.map((todo) => {
+				if (todo.id === id) {
+					return {};
+				}
+				return todo;
+			})
+		);
+	}
 const addTodoItem = (title) => {
   const newTodo = {
     id: 4,
@@ -31,7 +54,7 @@ const addTodoItem = (title) => {
 	return(
     <div>
       <TodoInput addTodoItem={addTodoItem}/>
-      <TodoList todosProps={todos} setTodos={setTodos}/>
+      <TodoList todosProps={todos} setTodos={setTodos} handleChange={handleChange} DeleteTodo={DeleteTodo}/>
     </div>
 	)
 }
