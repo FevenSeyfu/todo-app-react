@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from '../styles/TodoItem.module.css'
 
-	const TodoItem = ({ itemProp,handleChange,DeleteTodo,setUpdate }) => {
-		const [editing, setEditing] = useState(false);
+const TodoItem = ({ itemProp,handleChange,DeleteTodo,setUpdate }) => {
+  const [editing, setEditing] = useState(false);
 
 	const handleEditing = () => {
 		setEditing(true);
@@ -21,7 +21,7 @@ import styles from '../styles/TodoItem.module.css'
   } else {
     editMode.display = 'none';
   }
-	const handleUpdatedDone = (event) => {
+  const handleUpdatedDone = (event) => {
     if (event.key === 'Enter') {
       setEditing(false);
     }
@@ -33,7 +33,6 @@ import styles from '../styles/TodoItem.module.css'
 					type="checkbox"
 					checked={itemProp.completed}
 					name="todoTask"
-					onKeyDown={handleUpdatedDone}
 					onChange={()=>handleChange(itemProp.id)}/>
 					<span style={itemProp.completed ? completedStyle : null}>
 						{itemProp.title}
@@ -46,6 +45,7 @@ import styles from '../styles/TodoItem.module.css'
 				value={itemProp.title}
 				className={styles.textInput}
 				style={editMode}
+				onKeyDown={handleUpdatedDone}
 				onChange={(e) => setUpdate(e.target.value, itemProp.id)}/>
 		</li>
 	);
