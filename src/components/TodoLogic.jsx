@@ -49,16 +49,16 @@ const addTodoItem = (title) => {
   };
   setTodos([...todos, newTodo]);
 };
-const setUpdate = (updatedTitle, id) => {
-  setTodos(
-    todos.map((todo) => {
-      if (todo.id === id) {
-        todo.title = updatedTitle;
-      }
-      return todo;
-    })
-  );
-};
+	const setUpdate = (updatedTitle, id) => {
+		setTodos(
+			todos.map((todo) => {
+				if (todo.id === id) {
+					todo.title = updatedTitle;
+				}
+				return todo;
+			})
+		);
+	};
 	return(
     <div>
       <TodoInput addTodoItem={addTodoItem}/>

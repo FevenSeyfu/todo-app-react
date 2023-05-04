@@ -1,12 +1,16 @@
-import Header from '@/components/Header';
-import TodosLogic from '@/components/TodosLogic';
+import TodoHeader from '@/components/TodoHeader';
+import TodoLogic from '@/components/TodoLogic';
+// import Navbar from '@/components/NavBar';
 
 const Home = () => {
   return (
     <div className="wrapper">
+      {/* <header>
+        <Navbar />
+			</header> */}
       <div className="todos">
-        <Header />
-        <TodosLogic />
+        <TodoHeader />
+        <TodoLogic />
       </div>
     </div>
   );
